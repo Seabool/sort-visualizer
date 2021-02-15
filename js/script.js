@@ -9,7 +9,7 @@ function createView() {
     updateContainer();
 }
 
-function updateContainer(id) {
+function updateContainer(indexOfSwapElement) {
     let barsContainer = document.getElementById("bars-container");
     barsContainer.innerHTML = "";
 
@@ -17,11 +17,10 @@ function updateContainer(id) {
         numberBar = document.createElement("div");
         numberBar.className = "number-bar";
         numberBar.style.height = arrayOfNumbers[i] / 1.2 + "%";
-
-        if (id === i) {
+        if (indexOfSwapElement === i) {
             numberBar.style.backgroundColor = "green";
         }
-        if (id + 1 === i) {
+        if (indexOfSwapElement + 1 === i) {
             numberBar.style.backgroundColor = "yellow";
         }
         barsContainer.appendChild(numberBar);
@@ -30,11 +29,9 @@ function updateContainer(id) {
 
 function bubbleSort() {
     clearInterval(sortInterval);
-
     sortInterval = setInterval(function() {
         let finishedSorting = sortUntilNextSwap();
         updateContainer(swapElement);
-
         if (finishedSorting) clearInterval(sortInterval);
     }, Math.round(1000 / FRAMES_PER_SECOND));
 }
@@ -59,8 +56,7 @@ function sortUntilNextSwap() {
 function createRandomArray(min, max, size) {
     let arrayOfNumbers = [];
     for (let i = 0; i < size; i++) {
-        let rand = getRandomIntInRange(min, max)
-        arrayOfNumbers.push(rand);
+        arrayOfNumbers.push(getRandomIntInRange(min, max));
     }
     return arrayOfNumbers;
 }
