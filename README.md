@@ -9,14 +9,7 @@ I liked the application that was created by the [Clément Mihailescu](https://ww
 
 ### Sorting algorithms I want to add:
 - Selection Sort.
-- Recursive Bubble Sort.
-- Insertion Sort.
-- Recursive Insertion Sort.
 - Merge Sort.
-- Iterative Merge Sort.
 - Quick Sort.
 
 ### Todos
-- Speed bar
-- Bar/Input to change maximum number of elements in array
-- Stop/Play buttons
