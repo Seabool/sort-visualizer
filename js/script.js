@@ -1,20 +1,24 @@
-let arrayOfNumbers = createRandomArray(0, 100, 50);
+let arraySize = 100;
+let speedOfSorting = 60;
+
+let arrayOfNumbers = createRandomArray(0, 100, arraySize);
+
 let swapElement;
 let checkElement;
-let FRAMES_PER_SECOND = 60;
+
 let sortInterval = null;
 let isPaused = false;
 
 function createView() {
+    arraySize = document.getElementById("size-slider").value;
     swapElement = 0;
     checkElement = 0;
     clearInterval(sortInterval);
-    arrayOfNumbers = createRandomArray(0, 100, 50);
+    arrayOfNumbers = createRandomArray(0, 100, arraySize);
     updateContainer();
 }
 
 function updateContainer(indexOfSwapElement, indexOfCheckElement) {
-    console.log("elo 2");
     let barsContainer = document.getElementById("bars-container");
     barsContainer.innerHTML = "";
 
@@ -22,6 +26,7 @@ function updateContainer(indexOfSwapElement, indexOfCheckElement) {
         numberBar = document.createElement("div");
         numberBar.className = "number-bar";
         numberBar.style.height = arrayOfNumbers[i] / 1.2 + "%";
+        numberBar.style.width = 80 / arrayOfNumbers.length + "vw";
         if (indexOfSwapElement === i) {
             numberBar.style.backgroundColor = "green";
         }
@@ -32,8 +37,27 @@ function updateContainer(indexOfSwapElement, indexOfCheckElement) {
     }
 }
 
+function checkIsSorted() {
+    let barsContainer = document.getElementById("bars-container");
+    barsContainer.innerHTML = "";
+
+    for (let i = 0; i < arrayOfNumbers.length - 1; i++) {
+        numberBar = document.createElement("div");
+        numberBar.className = "number-bar";
+        numberBar.style.height = arrayOfNumbers[i] / 1.2 + "%";
+        numberBar.style.width = 80 / arrayOfNumbers.length + "vw";
+        if (arrayOfNumbers[i] <= arrayOfNumbers[i + 1]) {
+            numberBar.style.backgroundColor = "green";
+        } else {
+            numberBar.style.backgroundColor = "red";
+        }
+
+        barsContainer.appendChild(numberBar);
+    }
+}
+
 function visualizeSort(sortFunction) {
-    FRAMES_PER_SECOND = document.getElementById("slider").value;
+    speedOfSorting = document.getElementById("speed-slider").value;
     clearInterval(sortInterval);
 
     sortInterval = setInterval(function() {
@@ -46,28 +70,10 @@ function visualizeSort(sortFunction) {
             }
         }
 
-    }, Math.round(1000 / FRAMES_PER_SECOND));
+    }, Math.round(1000 / speedOfSorting));
 }
 
-function checkIsSorted() {
 
-    let barsContainer = document.getElementById("bars-container");
-    barsContainer.innerHTML = "";
-
-    for (let i = 0; i < arrayOfNumbers.length - 1; i++) {
-        console.log("elo");
-        numberBar = document.createElement("div");
-        numberBar.className = "number-bar";
-        numberBar.style.height = arrayOfNumbers[i] / 1.2 + "%";
-        if (arrayOfNumbers[i] <= arrayOfNumbers[i + 1]) {
-            numberBar.style.backgroundColor = "green";
-        } else {
-            numberBar.style.backgroundColor = "red";
-        }
-
-        barsContainer.appendChild(numberBar);
-    }
-}
 
 function bubbleSort() {
     for (i = 0; i < arrayOfNumbers.length; i++) {

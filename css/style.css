@@ -4,7 +4,7 @@
 
 body {
     color: white;
-    font-size: 8px;
+    font-size: 8em;
     background-color: #1E1E1E;
 }
 
@@ -32,19 +32,19 @@ button:focus {
 }
 
 .bars-container {
+    width: 80vw;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     height: 500px;
     margin: 50px auto;
     background-color: #161616;
+    padding: 5px;
 }
 
 .number-bar {
     background-color: white;
-    padding: 2px;
-    margin: 2px;
-    width: 1vw;
+    margin: 0 1px;
     border-radius: 0px 0px 5px 5px;
 }
 
