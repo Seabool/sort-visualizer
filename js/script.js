@@ -2,9 +2,11 @@ let arrayOfNumbers = createRandomArray(0, 100, 50);
 let swapElement;
 let FRAMES_PER_SECOND = 60;
 let sortInterval = null;
+let isPaused = false;
 
 function createView() {
     swapElement = 0;
+    clearInterval(sortInterval);
     arrayOfNumbers = createRandomArray(0, 100, 50);
     updateContainer();
 }
@@ -28,15 +30,30 @@ function updateContainer(indexOfSwapElement) {
 }
 
 function bubbleSort() {
+    FRAMES_PER_SECOND = document.getElementById("slider").value;
     clearInterval(sortInterval);
     sortInterval = setInterval(function() {
-        let finishedSorting = sortUntilNextSwap();
-        updateContainer(swapElement);
-        if (finishedSorting) clearInterval(sortInterval);
+        if (!isPaused) {
+            let finishedSorting = bubbleSortUntilNextSwap();
+            updateContainer(swapElement);
+            if (finishedSorting) clearInterval(sortInterval);
+        }
+
     }, Math.round(1000 / FRAMES_PER_SECOND));
 }
 
-function sortUntilNextSwap() {
+function pauseSorting() {
+    let pauseButton = document.getElementById("pause-button");
+    if (isPaused) {
+        isPaused = false;
+        pauseButton.innerText = "Pause";
+    } else {
+        isPaused = true;
+        pauseButton.innerText = "Play";
+    }
+}
+
+function bubbleSortUntilNextSwap() {
     for (i = 0; i < arrayOfNumbers.length; i++) {
         for (j = swapElement; j < arrayOfNumbers.length - 1; j++) {
             swapElement = j;
