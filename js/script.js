@@ -29,28 +29,17 @@ function updateContainer(indexOfSwapElement) {
     }
 }
 
-function bubbleSort() {
+function visualizeSort(sortFunction) {
     FRAMES_PER_SECOND = document.getElementById("slider").value;
     clearInterval(sortInterval);
     sortInterval = setInterval(function() {
         if (!isPaused) {
-            let finishedSorting = bubbleSortUntilNextSwap();
+            let finishedSorting = sortFunction();
             updateContainer(swapElement);
             if (finishedSorting) clearInterval(sortInterval);
         }
 
     }, Math.round(1000 / FRAMES_PER_SECOND));
-}
-
-function pauseSorting() {
-    let pauseButton = document.getElementById("pause-button");
-    if (isPaused) {
-        isPaused = false;
-        pauseButton.innerText = "Pause";
-    } else {
-        isPaused = true;
-        pauseButton.innerText = "Play";
-    }
 }
 
 function bubbleSortUntilNextSwap() {
@@ -68,6 +57,34 @@ function bubbleSortUntilNextSwap() {
     }
 
     return true;
+}
+
+function insertionSort() {
+    for (let i = 1; i < arrayOfNumbers.length; i++) {
+        let current = arrayOfNumbers[i];
+        swapElement = i - 1;
+        while ((swapElement > -1) && (current < arrayOfNumbers[swapElement])) {
+            let temp = arrayOfNumbers[swapElement + 1];
+            arrayOfNumbers[swapElement + 1] = arrayOfNumbers[swapElement];
+            arrayOfNumbers[swapElement] = temp;
+            swapElement--;
+            return false;
+        }
+        arrayOfNumbers[swapElement + 1] = current;
+        swapElement = 0;
+    }
+    return true;
+}
+
+function pauseSorting() {
+    let pauseButton = document.getElementById("pause-button");
+    if (isPaused) {
+        isPaused = false;
+        pauseButton.innerText = "Pause";
+    } else {
+        isPaused = true;
+        pauseButton.innerText = "Play";
+    }
 }
 
 function createRandomArray(min, max, size) {
