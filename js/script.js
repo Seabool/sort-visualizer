@@ -28,7 +28,7 @@ function updateContainer(indexOfSwapElement, indexOfCheckElement) {
         numberBar.style.height = arrayOfNumbers[i] / 1.2 + "%";
         numberBar.style.width = 80 / arrayOfNumbers.length + "vw";
         if (indexOfSwapElement === i) {
-            numberBar.style.backgroundColor = "green";
+            numberBar.style.backgroundColor = "#00CC00";
         }
         if (indexOfCheckElement === i) {
             numberBar.style.backgroundColor = "yellow";
@@ -47,7 +47,7 @@ function checkIsSorted() {
         numberBar.style.height = arrayOfNumbers[i] / 1.2 + "%";
         numberBar.style.width = 80 / arrayOfNumbers.length + "vw";
         if (arrayOfNumbers[i] <= arrayOfNumbers[i + 1]) {
-            numberBar.style.backgroundColor = "green";
+            numberBar.style.backgroundColor = "#00CC00";
         } else {
             numberBar.style.backgroundColor = "red";
         }

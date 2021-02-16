@@ -1,11 +1,16 @@
+@font-face {
+    font-family: "KumbhSans";
+    src: url(../fonts/KumbhSans-Regular.ttf);
+}
+
 * {
     margin: 0;
 }
 
 body {
-    color: white;
+    color: black;
     font-size: 8em;
-    background-color: #1E1E1E;
+    background-color: white;
 }
 
 div {
@@ -14,16 +19,16 @@ div {
 }
 
 button {
-    border: 2px solid white;
+    border: 2px solid black;
     height: 30px;
     width: 100px;
     transition: background-color 0.2s;
-    background-color: #1E1E1E;
-    color: white;
+    font-family: 'KumbhSans';
+    margin: 0 5px;
 }
 
 button:hover {
-    background-color: #444444;
+    background-color: #626262;
     cursor: pointer;
 }
 
@@ -38,8 +43,9 @@ button:focus {
     justify-content: center;
     height: 500px;
     margin: 50px auto;
-    background-color: #161616;
+    background-color: #626262;
     padding: 5px;
+    box-shadow: 0px 0px 20px black inset;
 }
 
 .number-bar {
@@ -52,17 +58,20 @@ button:focus {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
+    box-shadow: 0px 0px 10px black;
+    padding: 10px 0;
 }
 
 .slider {
     -webkit-appearance: none;
-    height: 28px;
-    border: 1px solid white;
-    background-color: #1E1E1E;
+    height: 25px;
+    border: 2px solid black;
+    background-color: white;
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
+    margin: 0 5px;
 }
 
 .slider:hover {
@@ -72,15 +81,15 @@ button:focus {
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 28px;
-    height: 28px;
-    background: white;
+    width: 25px;
+    height: 25px;
+    background: black;
     cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
-    width: 28px;
-    height: 28px;
-    background: white;
+    width: 25px;
+    height: 25px;
+    background: black;
     cursor: pointer;
 }
