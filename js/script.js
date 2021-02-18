@@ -9,6 +9,14 @@ let checkElement;
 let sortInterval = null;
 let isPaused = false;
 
+let sizeSlider = document.getElementById("size-slider");
+
+sizeSlider.onchange = function() {
+    arraySize = parseInt(this.value, 10);
+    arrayOfNumbers = createRandomArray(0, 100, arraySize);
+    updateContainer();
+}
+
 window.onload = function() {
     arrayOfNumbers = createRandomArray(0, 100, arraySize);
     updateContainer();
@@ -62,7 +70,6 @@ function checkIsSorted() {
 }
 
 function visualizeSort(sortFunction) {
-    speedOfSorting = document.getElementById("speed-slider").value;
     clearInterval(sortInterval);
 
     sortInterval = setInterval(function() {
