@@ -1,13 +1,18 @@
 let arraySize = 100;
 let speedOfSorting = 60;
 
-let arrayOfNumbers = createRandomArray(0, 100, arraySize);
+let arrayOfNumbers;
 
 let swapElement;
 let checkElement;
 
 let sortInterval = null;
 let isPaused = false;
+
+window.onload = function() {
+    arrayOfNumbers = createRandomArray(0, 100, arraySize);
+    updateContainer();
+};
 
 function createView() {
     arraySize = document.getElementById("size-slider").value;
