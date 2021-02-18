@@ -20,7 +20,7 @@ div {
 
 button {
     border: none;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #AEAEAE;
     height: 30px;
     width: 100px;
     transition: background-color 0.2s;
@@ -49,17 +49,27 @@ header {
     justify-content: center;
     height: 500px;
     margin: 50px auto;
-    background-color: #626262;
+    background-color: #AEAEAE;
     padding: 5px;
     box-shadow: 0px 0px 20px black inset;
 }
 
 .logo {
     text-align: center;
-    width: 100%;
+    width: 70%;
     font-family: 'KumbhSans';
     font-size: 30px;
     padding: 10px;
+    margin: auto;
+}
+
+.icon {
+    color: black;
+    display: block;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
 }
 
 .number-bar {
@@ -69,12 +79,10 @@ header {
 }
 
 .buttons-container {
-    max-height: 0;
     display: none;
     flex-wrap: wrap;
     justify-content: center;
     padding: 10px 0;
-    transition: max-height 0.15s ease-out;
 }
 
 .buttons-container-active {
@@ -82,8 +90,6 @@ header {
     flex-wrap: wrap;
     justify-content: center;
     padding: 10px 0;
-    max-height: auto;
-    transition: max-height 0.25s ease-in;
 }
 
 .sliders-container {
@@ -110,7 +116,7 @@ header {
 .slider {
     -webkit-appearance: none;
     height: 25px;
-    border: 2px solid black;
+    border: 1px solid #AEAEAE;
     background-color: white;
     outline: none;
     opacity: 0.7;
@@ -128,37 +134,25 @@ header {
     appearance: none;
     width: 26px;
     height: 26px;
-    background: black;
+    background: #AEAEAE;
     cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
     width: 26px;
     height: 26px;
-    background: black;
+    background: #AEAEAE;
     cursor: pointer;
 }
 
-.icon {
-    color: black;
-    display: block;
-    margin: auto;
-    width: 100%;
-    text-align: center;
-    font-size: 25px;
-}
-
-@media (max-width: 750px) {
+@media (max-width: 500px) {
     .buttons-container {
         flex-direction: row;
     }
     button {
-        width: 100%;
-        margin: 0;
+        width: 60%;
         border: none;
-    }
-    .slider {
-        width: 50%;
-        margin-bottom: 10px;
+        border-bottom: 1px solid #AEAEAE;
+        margin: 0 auto;
     }
 }
