@@ -7,17 +7,35 @@
     <meta name="description" content="Plain JavaScript Sorting Visualizer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <div class="buttons-container">
-        <button onclick="createView()">Create</button>
-        <button onclick="visualizeSort(bubbleSort)">Bubble Sort</button>
-        <button onclick="visualizeSort(insertionSort)">Insert Sort</button>
-        <button id="pause-button" onclick="pauseSorting()">Pause</button>
-        <input type="range" min="10" max="200" value="100" step="10" class="slider" id="speed-slider">
-        <input type="range" min="10" max="200" value="100" step="10" class="slider" id="size-slider">
-    </div>
+    <header>
+        <div class="logo">
+            Sort Visualizer
+        </div>
+        <div class="buttons-container" id="buttons-container">
+            <button onclick="createView()">Create</button>
+            <button onclick="visualizeSort(bubbleSort)">Bubble Sort</button>
+            <button onclick="visualizeSort(insertionSort)">Insert Sort</button>
+            <button id="pause-button" onclick="pauseSorting()">Pause</button>
+            <div class="sliders-container">
+                <div class="slider-container">
+                    <span>Speed of sorting</span>
+                    <input type="range" min="10" max="210" value="110" step="10" class="slider" id="speed-slider">
+                </div>
+                <div class="slider-container">
+                    <span>Size of array</span>
+                    <input type="range" min="10" max="210" value="110" step="10" class="slider" id="size-slider">
+                </div>
+            </div>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </header>
+
     <div id="bars-container" class="bars-container"></div>
     <script type="application/javascript" src="js/script.js"></script>
 </body>

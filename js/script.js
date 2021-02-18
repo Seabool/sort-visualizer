@@ -146,3 +146,12 @@ function getRandomIntInRange(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
 }
+
+function myFunction() {
+    var x = document.getElementById("buttons-container");
+    if (x.className === "buttons-container-active") {
+        x.className = "buttons-container";
+    } else {
+        x.className = "buttons-container-active";
+    }
+}

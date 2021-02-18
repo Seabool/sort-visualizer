@@ -36,6 +36,10 @@ button:focus {
     outline: 0;
 }
 
+header {
+    box-shadow: 0px 0px 10px black;
+}
+
 .bars-container {
     width: 80vw;
     display: flex;
@@ -48,6 +52,14 @@ button:focus {
     box-shadow: 0px 0px 20px black inset;
 }
 
+.logo {
+    text-align: center;
+    width: 100%;
+    font-family: 'KumbhSans';
+    font-size: 30px;
+    padding: 10px;
+}
+
 .number-bar {
     background-color: white;
     margin: 0 1px;
@@ -55,11 +67,42 @@ button:focus {
 }
 
 .buttons-container {
-    display: flex;
-    flex-wrap: nowrap;
+    max-height: 0;
+    display: none;
+    flex-wrap: wrap;
     justify-content: center;
-    box-shadow: 0px 0px 10px black;
     padding: 10px 0;
+    transition: max-height 0.15s ease-out;
+}
+
+.buttons-container-active {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 0;
+    max-height: auto;
+    transition: max-height 0.25s ease-in;
+}
+
+.sliders-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.slider-container span {
+    width: 100%;
+    padding: 10px;
+    font-family: 'KumbhSans';
+    font-size: 15px;
+    text-align: center;
 }
 
 .slider {
@@ -71,7 +114,7 @@ button:focus {
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
-    margin: 0 5px;
+    margin: 0 auto;
 }
 
 .slider:hover {
@@ -81,15 +124,39 @@ button:focus {
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 25px;
-    height: 25px;
+    width: 26px;
+    height: 26px;
     background: black;
     cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
+    width: 26px;
+    height: 26px;
     background: black;
     cursor: pointer;
+}
+
+.icon {
+    color: black;
+    display: block;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+}
+
+@media (max-width: 750px) {
+    .buttons-container {
+        flex-direction: row;
+    }
+    button {
+        width: 100%;
+        margin: 0;
+        border: none;
+    }
+    .slider {
+        width: 50%;
+        margin-bottom: 10px;
+    }
 }
