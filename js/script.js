@@ -9,17 +9,17 @@ let checkElement;
 let sortInterval = null;
 let isPaused = false;
 
-let sizeSlider = document.getElementById("size-slider");
-
-sizeSlider.onchange = function() {
-    arraySize = parseInt(this.value, 10);
-    arrayOfNumbers = createRandomArray(0, 100, arraySize);
-    updateContainer();
-}
-
 window.onload = function() {
     arrayOfNumbers = createRandomArray(0, 100, arraySize);
     updateContainer();
+
+    let sizeSlider = document.getElementById("size-slider");
+
+    sizeSlider.onchange = function() {
+        arraySize = parseInt(this.value, 10);
+        arrayOfNumbers = createRandomArray(0, 100, arraySize);
+        updateContainer();
+    }
 };
 
 function createView() {
