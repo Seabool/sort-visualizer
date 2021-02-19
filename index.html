@@ -17,10 +17,10 @@
             Sort Visualizer
         </div>
         <div class="buttons-container" id="buttons-container">
-            <button onclick="createView()">Create</button>
-            <button onclick="visualizeSort(bubbleSort)">Bubble Sort</button>
-            <button onclick="visualizeSort(insertionSort)">Insert Sort</button>
-            <button id="pause-button" onclick="pauseSorting()">Pause</button>
+            <button onclick="visualizer.createView()">Create</button>
+            <button onclick="visualizer.visualizeSort(algorithms.bubbleSort)">Bubble Sort</button>
+            <button onclick="visualizer.visualizeSort(algorithms.insertionSort)">Insert Sort</button>
+            <button id="pause-button" onclick="visualizer.pauseSorting()">Pause</button>
             <div class="sliders-container">
                 <div class="slider-container">
                     <span>Speed of sorting</span>
@@ -32,13 +32,16 @@
                 </div>
             </div>
         </div>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <a href="javascript:void(0);" class="icon" onclick="openCloseMenu()">
             <i class="fa fa-bars"></i>
         </a>
     </header>
 
     <div id="bars-container" class="bars-container"></div>
-    <script type="application/javascript" src="js/script.js"></script>
+
+    <script type="application/javascript" src="js/visualizer.js"></script>
+    <script type="application/javascript" src="js/algorithms.js"></script>
+    <script type="application/javascript" src="js/operations.js"></script>
 </body>
 
 </html>
